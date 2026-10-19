@@ -5,8 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | TFI — The First Impression</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -15,42 +22,61 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    /* Navigation */
     nav {
-      height: 84px;
+      min-height: 88px;
       padding: 0 8%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #e5e0d7;
+      gap: 24px;
     }
 
     .logo {
-      font-family: Georgia, serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 25px;
       letter-spacing: 4px;
       text-decoration: none;
       color: #24231f;
+      flex-shrink: 0;
     }
 
-    nav a:last-child {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(16px, 3vw, 38px);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
       color: #24231f;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
+      transition: color 0.2s;
     }
 
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #9a8060;
+    }
+
+    /* Main page */
     main {
-      min-height: calc(100vh - 145px);
+      min-height: calc(100vh - 155px);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 70px 24px;
+      padding: 90px 24px;
     }
 
     .contact {
       width: 100%;
       max-width: 540px;
+      margin: 0 auto;
     }
 
     .eyebrow {
@@ -59,142 +85,241 @@
       letter-spacing: 4px;
       text-transform: uppercase;
       color: #8b795e;
-      margin-bottom: 22px;
+      margin: 0 0 24px;
     }
 
     h1 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: normal;
-      font-size: clamp(42px, 7vw, 60px);
+      font-size: clamp(42px, 6vw, 60px);
+      line-height: 1.12;
       text-align: center;
-      margin: 0 0 16px;
+      margin: 0 0 20px;
     }
 
     .intro {
       text-align: center;
       color: #77736c;
       font-size: 14px;
-      line-height: 1.8;
-      margin: 0 auto 42px;
-      max-width: 380px;
+      line-height: 1.9;
+      margin: 0 auto 48px;
+      max-width: 390px;
+    }
+
+    /* Form */
+    .form-field {
+      margin-bottom: 26px;
     }
 
     label {
       display: block;
-      font-size: 11px;
-      letter-spacing: 1.5px;
+      font-size: 10px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin: 0 0 10px;
+      margin: 0 0 11px;
+      color: #34322d;
     }
 
-    input, textarea {
+    input,
+    textarea {
+      display: block;
       width: 100%;
       border: 1px solid #dcd6cb;
       background: #fffefa;
-      border-radius: 2px;
-      padding: 16px;
-      margin-bottom: 25px;
-      font: inherit;
+      border-radius: 0;
+      padding: 17px 16px;
+      font-family: inherit;
       font-size: 14px;
+      line-height: 1.5;
       color: #24231f;
       outline: none;
+      transition: border-color 0.2s;
     }
 
-    input:focus, textarea:focus {
+    input {
+      min-height: 56px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #a19a8f;
+    }
+
+    input:focus,
+    textarea:focus {
       border-color: #8b795e;
     }
 
     textarea {
-      min-height: 135px;
+      min-height: 145px;
       resize: vertical;
     }
 
-    button {
+    .submit-button {
+      display: block;
       width: 100%;
+      min-height: 56px;
+      margin-top: 8px;
       padding: 18px 24px;
       border: 1px solid #24231f;
+      border-radius: 0;
       background: #24231f;
       color: #fffefa;
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-size: 11px;
+      font-family: inherit;
+      font-size: 10px;
       cursor: pointer;
-      transition: background .2s, color .2s;
+      transition: background 0.2s, color 0.2s;
     }
 
-    button:hover {
+    .submit-button:hover {
       background: transparent;
       color: #24231f;
     }
 
+    /* Confirmation */
     .success {
       display: none;
       text-align: center;
-      margin-top: 24px;
-      font-family: Georgia, serif;
-      font-size: 19px;
-      line-height: 1.7;
+      margin-top: 30px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #34322d;
     }
 
+    .success p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #77736c;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 24px;
+      padding: 27px 20px;
       color: #888176;
       font-size: 10px;
       letter-spacing: 2px;
       border-top: 1px solid #e5e0d7;
     }
 
-    @media (max-width: 600px) {
-      nav { padding: 0 6%; height: 72px; }
-      main { padding: 55px 22px; }
+    @media (max-width: 700px) {
+      nav {
+        padding: 22px 6%;
+        min-height: 76px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        gap: 14px 18px;
+      }
+
+      .nav-links a {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
+
+      main {
+        padding: 70px 22px;
+      }
+
+      .intro {
+        margin-bottom: 36px;
+      }
     }
   </style>
 </head>
+
 <body>
   <nav>
     <a class="logo" href="index.html">TFI</a>
-    <a href="index.html">Home</a>
+
+    <div class="nav-links">
+      <a href="index.html#approach">OUR APPROACH</a>
+      <a href="index.html#services">SERVICES</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="contact.html" class="active">CONTACT</a>
+    </div>
   </nav>
 
   <main>
     <section class="contact">
-      <div class="eyebrow">The First Impression</div>
-      <h1>Contact Us</h1>
+      <p class="eyebrow">THE FIRST IMPRESSION</p>
+
+      <h1>Begin Your TFI Journey</h1>
+
       <p class="intro">
-        Every great introduction begins somewhere.
-        Tell us a little about yourself, and we'll be in touch shortly.
+        Share your details and we'll reach out to you shortly.
       </p>
 
-      <form id="contact-form"
+      <form
+        id="contact-form"
         action="https://formsubmit.co/bhargavireddy50@gmail.com"
-        method="POST">
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New TFI Consultation Request"
+        >
 
-        <input type="hidden" name="_subject"
-          value="New TFI Website Enquiry">
-        <input type="hidden" name="_template" value="table">
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
 
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text"
-          placeholder="Your full name"
-          autocomplete="name" required>
+        <input
+          type="hidden"
+          name="_next"
+          value="https://thefirstimpression.netlify.app/contact.html?submitted=true"
+        >
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email"
-          placeholder="Your email address"
-          autocomplete="email" required>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          >
+        </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message"
-          placeholder="How can we help you?"
-          required></textarea>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-        <button type="submit">Send Enquiry</button>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell us how we can help you"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">
+          Submit Enquiry
+        </button>
       </form>
 
       <div class="success" id="success">
-        Thank you for reaching out.<br>
-        You will hear from us shortly.
+        Thank you for reaching out.
+        <p>You will hear from us shortly.</p>
       </div>
     </section>
   </main>
@@ -202,7 +327,9 @@
   <footer>TFI · THE FIRST IMPRESSION</footer>
 
   <script>
-    if (new URLSearchParams(location.search).get("submitted") === "true") {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("submitted") === "true") {
       document.getElementById("contact-form").style.display = "none";
       document.getElementById("success").style.display = "block";
     }
