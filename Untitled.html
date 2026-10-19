@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TFI | The First Impression</title>
+<style>
+:root {
+  --black: #171715;
+  --ivory: #f5f0e8;
+  --champagne: #c5b18b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+nav {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd4c7;
+}
+.logo {
+  font: 30px Georgia, serif;
+  letter-spacing: 5px;
+}
+nav a, .button {
+  color: inherit;
+  text-decoration: none;
+}
+nav .links { display: flex; gap: 24px; font-size: 12px; }
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 570px;
+}
+.hero-text {
+  padding: 90px 10%;
+  align-self: center;
+}
+.eyebrow {
+  color: #897653;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; }
+h1 { font-size: clamp(45px, 6vw, 76px); line-height: 1.08; }
+h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
+.hero p, .intro p, .about p, .contact p { color: #655f56; }
+.hero-image {
+  background:
+    linear-gradient(#00000008,#00000008),
+    url("/Users/bhargavireddy/Desktop/TFI/vicky-hladynets-uyaTT9u6AvI-unsplash.jpg")
+    center 35% / cover;
+  filter: grayscale(100%);
+  min-height: 420px;
+}
+.button {
+  display: inline-block;
+  background: var(--black);
+  color: var(--ivory);
+  padding: 14px 22px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-top: 15px;
+}
+section { padding: 75px 8%; }
+.intro { text-align: center; background: #fffdf9; }
+.intro p { max-width: 680px; margin: auto; }
+.services-grid, .packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+.service, .package { border-top: 1px solid #c5b18b; padding-top: 22px; }
+.service p, .package p, .package li { color: #655f56; font-size: 14px; }
+.dark {
+  background: var(--black);
+  color: var(--ivory);
+  text-align: center;
+}
+.dark .eyebrow { color: var(--champagne); }
+.package {
+  background: #fffdf9;
+  padding: 25px;
+  border: 1px solid #ded6ca;
+  border-top: 3px solid var(--champagne);
+}
+.package h3 { font-size: 27px; }
+.price { font: 38px Georgia, serif; }
+.package ul { padding-left: 20px; }
+.package li { padding: 5px 0; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: center;
+}
+.monogram {
+  background: #e7dfd2;
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+  font: 75px Georgia, serif;
+  letter-spacing: 8px;
+}
+.contact { text-align: center; background: #e8e0d4; }
+footer {
+  padding: 28px 7%;
+  background: var(--black);
+  color: var(--ivory);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 12px;
+}
+@media(max-width: 700px) {
+  nav { flex-wrap: wrap; gap: 15px; }
+  nav .links { gap: 12px; font-size: 10px; }
+  .hero, .about-grid { grid-template-columns: 1fr; }
+  .hero-text { padding: 55px 8%; }
+  .hero-image { min-height: 400px; }
+  .services-grid, .packages-grid { grid-template-columns: 1fr; }
+  section { padding: 55px 7%; }
+  footer { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#home">TFI</a>
+  <div class="links">
+    <a href="#approach">OUR APPROACH</a>
+    <a href="#services">SERVICES</a>
+    <a href="#about">ABOUT</a>
+  </div>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<main>
+  <div class="hero" id="home">
+    <div class="hero-text">
+      <div class="eyebrow">The First Impression</div>
+      <h1>A better introduction to you.</h1>
+      <p>Personalized dating, profile and style consulting for people who want to show up as themselves with greater confidence and intention.</p>
+      <a class="button" href="#contact">Request a consultation</a>
+    </div>
+    <div class="hero-image" role="img" aria-label="Editorial portrait"></div>
+  </div>
+
+  <section class="intro" id="approach">
+    <div class="eyebrow">A considered approach</div>
+    <h2>Dating is personal.<br>Your guidance should be, too.</h2>
+    <p>We help you align how you present yourself online with who you are in real life. From your profile and personal style to date preparation and reflection, every recommendation starts with understanding you.</p>
+  </section>
+
+  <section id="services">
+    <div class="eyebrow">The TFI experience</div>
+    <h2>Thoughtful details. A more authentic you.</h2>
+    <div class="services-grid">
+      <div class="service">
+        <div class="eyebrow">01 / Presentation</div>
+        <h3>Refine your profile</h3>
+        <p>Choose stronger photos, refine your prompts and communicate your personality authentically.</p>
+      </div>
+      <div class="service">
+        <div class="eyebrow">02 / Personal style</div>
+        <h3>Elevate your style</h3>
+        <p>Make the most of your existing wardrobe and find considered additions within your budget.</p>
+      </div>
+      <div class="service">
+        <div class="eyebrow">03 / Confidence</div>
+        <h3>Date with intention</h3>
+        <p>Prepare for dates, feel confident in what you wear and reflect on what you learn from each experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="eyebrow">Personal, never prescriptive</div>
+    <h2>A personal approach.<br>Never one-size-fits-all.</h2>
+  </section>
+
+  <section id="packages" style="background:#fffdf9">
+    <div class="eyebrow">Ways to work together</div>
+    <h2>Find your starting point.</h2>
+    <p>Every engagement begins with a complimentary introductory consultation.</p>
+    <div class="packages-grid">
+      <div class="package">
+        <div class="eyebrow">01 / A focused reset</div>
+        <h3>The Dating Reset</h3>
+        <div class="price">$499</div>
+        <ul>
+          <li>Personalized dating consultation</li>
+          <li>Profile and prompt refinement</li>
+          <li>Review of existing photos</li>
+          <li>Personal styling consultation</li>
+          <li>Shopping recommendations</li>
+          <li>Date-preparation guidance</li>
+        </ul>
+        <a class="button" href="#contact">Enquire</a>
+      </div>
+      <div class="package">
+        <div class="eyebrow">02 / Complete experience</div>
+        <h3>The Full Transformation</h3>
+        <div class="price">$1,197</div>
+        <ul>
+          <li>Everything in Dating Reset</li>
+          <li>Photoshoot planning and coordination</li>
+          <li>Outfit planning for the shoot</li>
+          <li>Extended wardrobe review</li>
+          <li>Multiple dating-app profile review</li>
+          <li>Follow-up refinement session</li>
+        </ul>
+        <a class="button" href="#contact">Enquire</a>
+      </div>
+      <div class="package">
+        <div class="eyebrow">03 / Ongoing guidance</div>
+        <h3>TFI Concierge</h3>
+        <div class="price">$1,997+</div>
+        <ul>
+          <li>Everything in Full Transformation</li>
+          <li>Ongoing profile adjustments</li>
+          <li>Date-outfit recommendations</li>
+          <li>Pre-date preparation</li>
+          <li>Post-date reflection</li>
+          <li>Scheduled coaching check-ins</li>
+        </ul>
+        <a class="button" href="#contact">Enquire</a>
+      </div>
+    </div>
+    <p style="font-size:12px">These are proposed prices to test. Photography, clothing and third-party costs are separate unless agreed in advance. Dating outcomes are not guaranteed.</p>
+  </section>
+
+  <section id="about">
+    <div class="about-grid">
+      <div class="monogram">TFI</div>
+      <div class="about">
+        <div class="eyebrow">The people behind TFI</div>
+        <h2>Built from firsthand experience.</h2>
+        <p>2 Columbia graduates who are navigating dating apps ourselves. We see how easily a profile can miss the person behind it. TFI was created to make that introduction more thoughtful, authentic and personal.</p>
+        <p>Our approach brings together profile guidance, personal style and practical coaching, with recommendations shaped around each client's personality, goals and budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="eyebrow">Begin with a conversation</div>
+    <h2>Your next chapter starts with an introduction.</h2>
+    <p>Start with a complimentary introductory consultation to discuss your goals and see whether TFI is the right fit.</p>
+    <!-- Replace this placeholder with your real email before publishing. -->
+    <a class="button" href="mailto:YOUR_EMAIL@example.com?subject=TFI%20Consultation">Request a consultation</a>
+  </section>
+</main>
+
+<footer>
+  <div>TFI · The First Impression</div>
+  <div>Personalized dating, profile & style consulting</div>
+  <div>© 2026 The First Impression</div>
+</footer>
+</body>
+</html>
