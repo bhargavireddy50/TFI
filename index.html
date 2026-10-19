@@ -269,5 +269,49 @@ footer {
   <div>Personalized dating, profile & style consulting</div>
   <div>© 2026 The First Impression</div>
 </footer>
+  
+<section id="enquiry">
+  <h2>Begin Your TFI Journey</h2>
+  <p>
+    Share your details and we'll reach out to you shortly.
+  </p>
+
+  <form
+    action="https://formsubmit.co/bhargavireddy50@gmail.com"
+    method="POST"
+  >
+    <input type="hidden" name="_subject"
+      value="New TFI Enquiry">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_next"
+      value="https://thefirstimpression.netlify.app/?submitted=true#enquiry">
+
+    <label for="enquiry-name">Name</label>
+    <input id="enquiry-name" name="name"
+      autocomplete="name" placeholder="Your name" required>
+
+    <label for="enquiry-email">Email</label>
+    <input id="enquiry-email" name="email" type="email"
+      autocomplete="email" placeholder="you@example.com" required>
+
+    <button type="submit">Submit Enquiry</button>
+  </form>
+
+  <p id="enquiry-success" hidden>
+    Thank you for your interest in TFI.
+    You will hear from us shortly.
+  </p>
+</section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("submitted") === "true") {
+    document.getElementById("enquiry-success").hidden = false;
+    document.getElementById("enquiry").scrollIntoView();
+  }
+</script>
+
 </body>
 </html>
